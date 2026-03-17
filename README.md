@@ -45,10 +45,14 @@ This implementation is a submission for the final project of the class of "Patte
     ```
     *Fig. 1: The model output predictions that correspond to the probability of the test set samples being faulty.*
 
+    The submitted implemention involves the appropriate data preprocessing, including missing data handling, to train a Random Forest, the optimal parameters of which are achieved through hyperparameter searching and the proper validation.  
+
 2. A system that solves the problem of image segmentation in a hyperspectral image. The goal is the creation of a map of land-cover (multiclass classification) for the research area using only the classification of the model. The input data are the higher dimensionality spectral vectors for each pixel of the image, which vector correspond to different wavelengths of the electromagnetic spectrum.
 
     ![Automatic ROI Patch](media/output_comparison.png)
     *Fig. 2: The (approximated) research area (left) and the output pixel map (right).*
+
+    The developed solution performs data preprocessing, featuring average filtering for utilizing the data morphology, trains and validates a Support Vector Machine with RBF kernel after a proper hyperparameter optimization and postprocesses the final pixel map by applying a median filter on pixels of weak predictions.
 
 The test set outputs of both models were evaluated by the class professor and all student submissions were ranked based on performance. The present implementation of the second task has achieved the **3rd highest F1-score** of the 2025-2026 class, while the first model has achieved a high place in the ranking but not a podium spot.
 
@@ -140,15 +144,12 @@ The data provided for this task is the `HyperspectralTask.mat` which is a hypers
 1. **Load the Notebook:** Upload and open the `Final_Project_PR_58545.ipynb` file in Google Colab.
 2. **Load the Data:** Go the data directory, download the `Final_Project_data.zip` file. No need to extract the files, just upload it directly into Colab's temporary session storage using the ***Files*** section on the left sidebar and run the first code cell of `Final_Project_PR_58545.ipynb`.
 3. **Force-install Specific Package Versions:** Because cloud environments update their software frequently, newer versions of libraries might cause compatibility issues. If you encounter any unexpected errors while running the cells, please force-install the specific package versions listed in the [Python Packages Used](#codes-and-resources-used) section. To do that create a new code cell and run, for example, the command `!pip install scikit-learn==1.5.0`.
+4. **Complete Setup:** Run the two last code cells of the *Setup* section of `Final_Project_PR_58545.ipynb` to import the utilized libraries and the define the function that sets the random seeds for reproducibility.
 
 
 # Code Structure
 
-The code of the `HR_Extraction_from_Video.ipynb` notebook can be divided into 4 parts:
 
-* **Part 0: Setup**
-
-  Necessary for loading the project data and importing the utilized libraries.
 
 * **Part 1: Data Analysis**
 
